@@ -53,7 +53,29 @@
     <div class="col">
       <label for="payee-amount"><b>Payment Amount </b></label>
       <div>
-        {{ amount | currency }}
+        {{ amount | currency: "IDR" }}
+      </div>
+    </div>
+  </div>
+
+  <!-- {{ car | json }} -->
+
+  <!-- Miles -->
+  <div class="row">
+    <div class="form-group col">
+      <label for="Payee">Miles</label>
+      <input
+        type="number"
+        class="form-control"
+        (input)="onMilesChange($event.target.value)"
+      />
+    </div>
+
+    <div class="col">
+      <label for="payee-amount"><b>Kilometers </b></label>
+      <!-- <div *ngIf="(miles | convert: 'cm') > 10"> -->
+      <div>
+        {{ miles | convert: "cm" | number: "1.0-2" }}
       </div>
     </div>
   </div>
